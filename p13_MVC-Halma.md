@@ -1,4 +1,4 @@
-# Práctica 13. Modelo Vista Controlador. Programación gráfica, orientada a objetos y dirigida por eventos en TypeScript. Halma
+# Práctica 13. La arquitectura MVC. El juego Halma
 ### Factor de ponderación: 10
 
 ### Objetivos
@@ -89,8 +89,8 @@ en la que puede jugar interactivamente.
 El código fuente de la aplicación está
 [también disponible](https://diveinto.html5doctor.com/examples/halma.js).
 
-En esta práctica se propone desarrollar una aplicación web `halma.js`.
-La aplicación se diseñará utilizando clases ES6 que modelen el juego e implementen el patrón MVC.
+En esta práctica se propone desarrollar una aplicación web `halma.ts`.
+La aplicación se diseñará utilizando clases que modelen el juego e implementen el patrón MVC.
 Antes de proceder al desarrollo, tómese el tiempo necesario para identificar objetos, clases, métodos y
 relaciones entre estas entidades.
 
@@ -107,9 +107,6 @@ y la dirección IP anterior por la correspondiente a su máquina IaaS.
 
 Utilice código HTML y CSS para lograr una página funcional y visualmente correcta.
 
-La página debiera imitar en todo lo posible el diseño de la página de 
-[tabletopia](https://tabletopia.com/playground/players/demo2732384/aiafy3?showAuthDlg=1)
-para el juego de Halma (que usa un tablero diferente del que aquí se propone).
 Del mismo modo que en la 
 [página de referencia de Halma](https://diveinto.html5doctor.com/examples/canvas-halma.html)
 su página debiera mostrar en todo momento el número de movimientos que se han realizado.
@@ -146,6 +143,7 @@ El servidor web que aloja estas páginas ha de seguir funcionando después de ce
 IaaS-ULL que aloja el servidor para posibilitar la evaluación del trabajo realizado.
 
 ## Referencias
+* [Halma](https://en.wikipedia.org/wiki/Halma)
 * [Modelo-vista-controlador](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
 * [PAI Code Examples](https://github.com/ULL-ESIT-PAI-2022-2023/PAI-class-code-examples)
 * [The Modern Javascript Tutorial](https://javascript.info)
