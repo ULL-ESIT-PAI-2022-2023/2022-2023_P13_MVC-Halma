@@ -1,9 +1,9 @@
-# Práctica 12. Modelo Vista Controlador. Programación gráfica, orientada a objetos y dirigida por eventos en TypeScript. Bouncing Ball.
+# Práctica 13. Modelo Vista Controlador. Programación gráfica, orientada a objetos y dirigida por eventos en TypeScript. Halma
 ### Factor de ponderación: 10
 
 ### Objetivos
 Los objetivos de esta tarea son poner en práctica:
-* La arquitectura Modelo Vista Controlador
+* El diseño de una aplicación conforme al patrón MVC.
 * Conceptos de Programación orientada a eventos en TypeScript.
 * Conceptos de Programación Gráfica en TypeScript usando la API Canvas.
 * Metodologías y conceptos de Programación Orientada a Objetos en TypeScript.
@@ -17,6 +17,7 @@ que se tendrán en cuenta a la hora de evaluar esta práctica:
 * Se valorará la realización de las diferentes tareas que se proponen
 * El comportamiento del programa debe ajustarse a lo descrito en este documento
 * Capacidad de la programadora de introducir cambios en el programa desarrollado
+* Se valorará una correcta implementación del patrón MVC y la conformidad a los principios de la OOP.
 * Se acredita conocimiento y puesta en práctica de principios y buenas prácticas de programación orientada a objetos
 * Saber corregir bugs en sus programas utilizando el depurador de Visual Studio Code
 * Deben usarse estructuras de datos adecuadas para representar los diferentes elementos que intervienen en el problema
@@ -73,66 +74,45 @@ o simplemente papel y bolígrafo.
 Realice, como siempre, un diseño incremental del programa comprobando cada una de las funcionalidades que añade, siguiendo un
 desarrollo TDD.
 
-### El patrón Modelo Vista Controlador
+### El juego Halma
+Halma es un antiguo juego de mesa del cual existen muchas variantes.
+La aplicación que se propone crear es una versión para jugar en solitario con 9 piezas en un tablero de 9x9. 
+Al comienzo del juego, las piezas se sitúan formando un cuadrado de 3x3 en la esquina inferior izquierda del tablero. 
+El objetivo del juego es mover todas las piezas para que formen un cuadrado de 3x3 en la esquina superior derecha 
+del tablero, en el menor número de movimientos.
 
-El 
-[modelo-vista-controlador](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
-(MVC) es un patrón de diseño arquitectónico habitualmente utilizado para el desarrollo de interfaces de usuario 
-que divide la lógica de la aplicación en tres elementos relacionados. 
-Esta división se realiza para separar la representación interna de la información (modelo) 
-de las formas en que se presenta (vista) y se acepta la información del usuario (contolador).
-Este patrón se ha utilizado tradicionalmente para interfaces gráficas de usuario (GUIs) de escritorio, 
-y se ha popularizado asimismo para el diseño de aplicaciones web.
+En 
+[esta página](https://diveinto.html5doctor.com/canvas.html#halma)
+puede consultar las reglas del juego y dispone asimismo de 
+[otra página](https://diveinto.html5doctor.com/examples/canvas-halma.html)
+en la que puede jugar interactivamente.
+El código fuente de la aplicación está
+[también disponible](https://diveinto.html5doctor.com/examples/halma.js).
 
-Es fácil encontrar en la web información sobre el patrón MVC, así como ejemplos de implementación del
-mismo en diferentes lenguajes.
-Los siguientes son elementos que puede utilizar para iniciarse en el estudio del patrón MVC:
-* [Estas transparencias](https://campusingenieriaytecnologia2223.ull.es/pluginfile.php/4388/mod_resource/content/2/FAlmeida-Transparencias-MVC2020.pdf)
-del profesor F. Almeida pueden ser un buen punto de toma de contacto con MVC.
-* En [esta otra página](https://www.roseindia.net/tutorial/java/jdbc/javamvcdesignpattern.html)
-puede hallar otra explicación detallada del modelo con una imagen que muestra el papel y las relaciones entre
-los componentes del mismo.
-* El directorio `MVC-ejemplo-java` de este proyecto contiene una aplicación java para un conversor de monedas
-que sigue el patrón MVC.
-* Por último, en el artículo
-[Build a Simple MVC App From Scratch in JavaScript](https://www.taniarascia.com/javascript-mvc-todo-app/)
-se explica con detalle la implementación de una aplicación (lista de tareas) siguiendo el patrón MVC.
-El código de la aplicación utilizando clases ES6 de JS está disponible a través de los enlaces del artículo.
-
-### Bouncing Ball 
-
-En esta práctica se propone desarrollar una aplicación TypeScript basada en el patrón MVC.
-La aplicación permitirá la visualización una bola de color que se mueva según un movimiento rectilíneo uniforme y rebote en los
-bordes del contenedor gráfico en el que se realiza la simulación.
-
-[Esta imagen](https://raw.githubusercontent.com/fsande/PAI-Labs-Public-Data/master/img/p13_BouncingBall/BouncingBall.png) 
-estática puede servir de referencia para la simulación que se propone realizar.
-
-Diseñe su aplicación web como una SPA
-([Single-page application](https://en.wikipedia.org/wiki/Single-page_application))
-de modo que toda la simulación se muestre en el viewport del navegador sin necesidad de usar las barras de scroll.
-
-La posición inicial de la bola en el contenedor gráfico así como el color de la misma se determinará aleatoriamente.
-
-Los rebotes de la bola con las paredes del contenedor han de simular en la medida de lo posible el
-comportamiento de una bola física rebotando en las paredes de un recinto.
-
-No añada inicialmente a la interfaz gráfica de su programa otros elementos adicionales.
-El el esquema de su página HTML reserve espacio en la parte inferior del Viewport del navegador para alojar
-elementos adicionales de interfaz gráfica de usuario.
+En esta práctica se propone desarrollar una aplicación web `halma.js`.
+La aplicación se diseñará utilizando clases ES6 que modelen el juego e implementen el patrón MVC.
+Antes de proceder al desarrollo, tómese el tiempo necesario para identificar objetos, clases, métodos y
+relaciones entre estas entidades.
 
 ### Interfaz gráfica del programa
 
 La visualización de la ejecución del programa se realizará a través de una página web alojada
 en la máquina IaaS-ULL de la asignatura y cuya URL tendrá la forma:
 
-[1] `http://10.6.129.123:8080/einstein-albert-bouncing-ball.html`
+[1] `http://10.6.129.123:8080/einstein-albert-halma.html`
 
-en la que se incluirá un elemento HTML canvas para el área de dibujo.
+en la que se incluirá un elemento HTML canvas para el juego.
 Sustituya *Albert Einstein* por su nombre y apellido en la URL de su página
 y la dirección IP anterior por la correspondiente a su máquina IaaS.
 
 Utilice código HTML y CSS para lograr una página funcional y visualmente correcta.
+
+La página debiera imitar en todo lo posible el diseño de la página de 
+[tabletopia](https://tabletopia.com/playground/players/demo2732384/aiafy3?showAuthDlg=1)
+para el juego de Halma (que usa un tablero diferente del que aquí se propone).
+Del mismo modo que en la 
+[página de referencia de Halma](https://diveinto.html5doctor.com/examples/canvas-halma.html)
+su página debiera mostrar en todo momento el número de movimientos que se han realizado.
 
 Diseñe asimismo otra página HTML simple 
 
@@ -151,6 +131,19 @@ que muestre el diagrama UML de las clases que intervienen en su aplicación.
 
 Utilice lo que haya aprendido de CSS para dotar de estilo propio a las páginas HTML que
 desarrolle.
+
+### Presentación de resultados de todas sus prácticas
+Esta es la última práctica de la asignatura en el este curso.
+Al efecto de tener todas sus prácticas centralizadas en un único repositorio, organice todas las prácticas que
+ha realizado en la asignatura (las haya evaluado o no) en un único proyecto que las incluya todas.
+Organice convenientemente el código y recursos de cada práctica en directorios diferenciados dentro del
+proyecto.
+Consiga que todas aquellas prácticas que hayan consistido en el desarrollo de una aplicación web sean
+accesibles a través de una web `prácticas-PAI-2022-2023.html` accesible desde una URL pública en su máquina IaaS de la
+asignatura.
+
+El servidor web que aloja estas páginas ha de seguir funcionando después de cerrar la sesión en la máquina
+IaaS-ULL que aloja el servidor para posibilitar la evaluación del trabajo realizado.
 
 ## Referencias
 * [Modelo-vista-controlador](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
